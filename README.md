@@ -23,5 +23,8 @@ Has an option to scroll while reading a pdf, either horizontal mode or vertical 
 <img src ="./eLibrary-app-screens/download.jpg" height="500"/>
 
 
+### Read PDF
+<img src ="./eLibrary-app-screens/read_pdf.jpg" height="500"/>
+
 ### Category
 <img src ="./eLibrary-app-screens/category.jpg" height="500"/>
