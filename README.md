@@ -1,4 +1,4 @@
-# eLibrary-react-native
+# eLibrary-app
 # a react native project
 It is a pdf reader app.
 It includes user authentication via email and password with firebase .
