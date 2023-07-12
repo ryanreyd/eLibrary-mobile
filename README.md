@@ -8,3 +8,8 @@ It can browse books by category.
 Has an option to scroll a pdf, either horizontal mode or vertical mode. 
 
 note : I did not test it on ios. I used physical android device when developing it.
+
+https://github.com/ryanreyd/eLibrary-react-native/blob/main/eLibrary-app-screens/login.jpg
+https://github.com/ryanreyd/eLibrary-react-native/blob/main/eLibrary-app-screens/home.jpg
+https://github.com/ryanreyd/eLibrary-react-native/blob/main/eLibrary-app-screens/download.jpg
+https://github.com/ryanreyd/eLibrary-react-native/blob/main/eLibrary-app-screens/category.jpg
