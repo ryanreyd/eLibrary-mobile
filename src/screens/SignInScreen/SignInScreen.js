@@ -31,7 +31,6 @@ const SignInScreen = ({route, navigation}) => {
     const watchEmail = watch('email');  //get updated value of the email Text intput
     const [errMsg, setErrMsg] = useState('') 
     const [showErrMsg, setShowErrMsg] = useState(false);
-    const [errorCount, setErrorCount] = useState(0);
     const isFocused = useIsFocused();
     
     const loginInPressed = async() => {
@@ -42,7 +41,6 @@ const SignInScreen = ({route, navigation}) => {
             // make the first letter capital, fro error message
             setErrMsg(result.code.charAt(0).toUpperCase()+result.code.slice(1)); 
             setShowErrMsg(true);
-            setErrorCount(prevCount => prevCount + 1);
         }else if(!userCreate.emailVerified) { 
             setUserEmail(watchEmail);
             setShowModal(true);
@@ -108,7 +106,7 @@ const SignInScreen = ({route, navigation}) => {
                 <View style={styles.bodyWrapper}>
                     <View style={styles.body}>
                         <View style={styles.errorArea}>
-                            <Warnigs showError={showErrMsg} errorMessage={errMsg} count={errorCount}/>
+                            <Warnigs showError={showErrMsg} errorMessage={errMsg}/>
                         </View>
                         <View style={styles.logInBody}>
                            <Text style={styles.loginText}>Sign in to your account</Text>
