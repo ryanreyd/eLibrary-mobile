@@ -77,10 +77,11 @@ const SignInScreen = ({route, navigation}) => {
                 <View>
                     <Text style={styles.headerText}>Hello, Welcome to </Text>
                     <Text style={styles.appName}>eLibrary</Text>
+                    <Text style={styles.headerTextSm}>"Read books with no boundaries."</Text>
                 </View>
-                {/*  <View style={styles.logo}>
-                     <Image source={appLogo} style={{height: 100, width: 100 }} resizeMode="contain" /> 
-                </View>    */}
+                 <View style={styles.logo}>
+                     <Image source={appLogo} style={{height: 500, width: 700 }} resizeMode="contain" /> 
+                </View>   
             </View> 
         )
     }
@@ -97,6 +98,9 @@ const SignInScreen = ({route, navigation}) => {
             <Verify showModal={showModal} message={messageToUnverifiedUser}/>
             <View style={styles.root}>
                 <View style={styles.headOuterWrapper}>
+                    <View style={styles.logo}>
+                        <Image source={appLogo} style={{height: 500, width: 700 }} resizeMode="contain" /> 
+                    </View>   
                     <View style={styles.headInnerWrapper}>
                         <View style={styles.head}>
                             <LoginHeaderView/>
@@ -188,6 +192,7 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         paddingHorizontal: 30,
         borderBottomEndRadius: 50,
+        overflow: 'hidden',
     },
     headerText:{
         fontSize: 20,
@@ -195,6 +200,14 @@ const styles = StyleSheet.create({
         color: 'white',
         textAlign: 'left',
         lineHeight : 50,
+    },
+    headerTextSm:{
+        fontSize: 16,
+        fontWeight: 200,
+        color: 'white',
+        textAlign: 'left',
+        lineHeight : 100,
+        fontStyle: 'italic'
     },
     appName:{
         fontSize: 30,
@@ -213,14 +226,12 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     logo:{
-        position: 'absolute',
-        zIndex: 99,
-        bottom: -20,
-        right: 30,
-        backgroundColor: 'white',
-        borderRadius: 20,
-        overflow: 'hidden',
-        elevation: 30,
+       position: 'absolute',
+       zIndex: -1,
+       right: -170,
+       bottom: -240,
+       overflow: 'hidden',
+       opacity: 0.2
     },
     loginText:{
         display: 'flex',
