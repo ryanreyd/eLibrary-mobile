@@ -30,7 +30,8 @@ const SignInScreen = ({route, navigation}) => {
     const watchPassword = watch('password'); //get updated value of the password Text intput
     const watchEmail = watch('email');  //get updated value of the email Text intput
     const [errMsg, setErrMsg] = useState('') 
-    const [showErrMsg, setShowErrMsg] = useState(false)
+    const [showErrMsg, setShowErrMsg] = useState(false);
+    const [errorCount, setErrorCount] = useState(0);
     const isFocused = useIsFocused();
     
     const loginInPressed = async() => {
@@ -40,10 +41,11 @@ const SignInScreen = ({route, navigation}) => {
         if(result instanceof Error){
             // make the first letter capital, fro error message
             setErrMsg(result.code.charAt(0).toUpperCase()+result.code.slice(1)); 
-            setShowErrMsg(true)
+            setShowErrMsg(true);
+            setErrorCount(prevCount => prevCount + 1);
         }else if(!userCreate.emailVerified) { 
-            setUserEmail(watchEmail)
-            setShowModal(true)
+            setUserEmail(watchEmail);
+            setShowModal(true);
             // can't log in if user email address is not verified
             logout()// logout not verified user
             //alert('Please verfiy your email address first. Email verfication link is sent to '+watchEmail);
@@ -55,6 +57,7 @@ const SignInScreen = ({route, navigation}) => {
         if (!isFocused) {
             setShowModal(false)
         }
+
     },[])
     
     //navigate to create account page 1 if press
@@ -104,8 +107,8 @@ const SignInScreen = ({route, navigation}) => {
                 </View>
                 <View style={styles.bodyWrapper}>
                     <View style={styles.body}>
-                        <View style={styles.errorStyle}>
-                            <Warnigs showError={showErrMsg} errorMessage={errMsg}/>
+                        <View style={styles.errorArea}>
+                            <Warnigs showError={showErrMsg} errorMessage={errMsg} count={errorCount}/>
                         </View>
                         <View style={styles.logInBody}>
                            <Text style={styles.loginText}>Sign in to your account</Text>
@@ -202,8 +205,9 @@ const styles = StyleSheet.create({
         color: 'white',
         textAlign: 'left'
     },
-    errorStyle:{
+    errorArea:{
         flex: 1,
+        paddingVertical: 20,
     },
     logInBody:{
         alignItems: 'center',

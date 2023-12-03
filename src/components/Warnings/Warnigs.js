@@ -1,27 +1,32 @@
 import { View, Text, StyleSheet} from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import * as Animatable from 'react-native-animatable';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 //renders custom error message
-const Warnigs = ({errorMessage, showError}) => {
-  return (
-    <Animatable.View animation={'shake'} style={[styles.card,{display: showError? 'flex' : 'none' }]}>
-        <View style={styles.icon}>
-            <Icon
-                name='alert'
-                size={16}
-                color='#C92B2B'
-            />
-        </View>
-        <Text style={styles.errorMessage}>{errorMessage}</Text>
-    </Animatable.View>
-  )
+const Warnigs = ({errorMessage, showError, count}) => {
+    let prev = 0;
+    if(count > prev){
+        prev = count;
+        return(
+            <Animatable.View animation={'shake'} style={[styles.card,]}>
+                <View style={styles.icon}>
+                    <Icon
+                        name='alert'
+                        size={16}
+                        color='#C92B2B'
+                    />
+                </View>
+                <Text style={styles.errorMessage}>{errorMessage}</Text>
+            </Animatable.View>
+        )
+    }else{
+        return null;
+    }
 }
 
 const styles = StyleSheet.create({
     card:{
-        position: 'absolute',
         width: 250,
         height: 40,
         backgroundColor: '#FDE9E9',
@@ -29,7 +34,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        top: 30,
         alignSelf: 'center',
         borderRadius: 8,
         borderWidth: 1,
